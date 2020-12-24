@@ -6,11 +6,11 @@ const CheckBoxListComponent = ({ options, onChange }) => {
     const toggle = index => {
         const newData = [...data];
         newData.splice(index, 1, {
-            id : data[index].id,
+            id: data[index].id,
             label: data[index].name,
             isFavourite: !data[index].isFavourite,
-            name : data[index].name
-            
+            name: data[index].name
+
         });
         setData(newData);
         // console.log("newData ==> ", newData);
@@ -21,7 +21,12 @@ const CheckBoxListComponent = ({ options, onChange }) => {
 
     return (
         <>
-            <ul class="list-group">
+            <ul class="list-group" style={{
+                marginLeft: 10 + 'em', 
+                marginRight: 10 + 'em',
+                marginTop: 3 + 'em',
+                marginBottom: 3 + 'em',
+                }}>
                 {data.map((item, index) => (
                     <li class="list-group-item">
                         <input
@@ -32,7 +37,7 @@ const CheckBoxListComponent = ({ options, onChange }) => {
                             onClick={() => toggle(index)}
                         />
                         <label key={item.id}>
-                            { " " + item.name}
+                            {" " + item.name}
                         </label>
                     </li>
                 ))}

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import Loader from 'react-loader-spinner';
@@ -10,6 +10,7 @@ const MainComponent = (props) => {
 
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
+    // TODO : ADD redux to store the Tab 1 and Tab 2 data
     const [selectedPlanet, setSelectedPlanet] = useState([]);
 
     useEffect(() => {
@@ -44,15 +45,16 @@ const MainComponent = (props) => {
         <Tabs>
             <TabList>
                 <Tab>All Planets List</Tab>
-                <Tab>Faviorate Planets</Tab>
+                <Tab>Favorite Planets</Tab>
             </TabList>
 
             <TabPanel>
                 <h2>Select Planets</h2>
-                <CheckBoxListComponent options={data} onChange={(data) => {
-                    setSelectedPlanet(data)
-                    // console.log(data);
-                }} />
+                <CheckBoxListComponent options={data}
+                    onChange={(data) => {
+                        setSelectedPlanet(data)
+                        // console.log(data);
+                    }} />
             </TabPanel>
             <TabPanel>
                 <h2>Your Selections</h2>
